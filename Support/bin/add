@@ -4,6 +4,6 @@
 require 'cgi'
 
 title = CGI::escape(ENV['MM_SUBJECT'] + " " + "\nLink: message://%3c" + ENV['MM_MESSAGE_ID'] + "%3e").gsub('+', '%20')
-if not system("open", "due:///add?content=#{title}")
+if not system("open", "due:///add?title=#{title}")
   `osascript -e 'display dialog "Make sure you have the Due app installed." with title "Failed to create task" buttons { "OK" }'`
 end
